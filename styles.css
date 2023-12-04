@@ -61,7 +61,7 @@ body {margin: 0;}
     border: none;
     background-color: transparent;
     caret-shape: block;
-    width: calc(99% - 2rch);
+    width: calc(70% - 2rch);
 }
 
 .terminalText {text-decoration: none; list-style-type: none;}
@@ -89,4 +89,7 @@ body {margin: 0;}
 
 hr {
     border-color: rgb(180, 255, 68);;
+}
+input:focus{
+    outline: none;
 }
