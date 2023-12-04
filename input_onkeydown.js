@@ -123,7 +123,7 @@ const processCommand = (commandWords) => {
             compositeResume += contactSection
         }
         if (techSkillsFlagPresent) {
-            compositeResume += skillsSection
+            compositeResume += techSkillsSection
         }
         if (workExperienceFlagPresent) {
             compositeResume += workExperienceSection
