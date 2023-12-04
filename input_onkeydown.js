@@ -255,6 +255,7 @@ function onLoad() {
     contentPane.scrollTop = contentPane.scrollHeight;
     document.onmousedown = (e) => {
         e.preventDefault();
+        document.getElementById("cmdInput").focus();
     }
 }
 
