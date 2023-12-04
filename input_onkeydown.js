@@ -13,17 +13,22 @@ const commands = {
     "about": "Provides a short bio about Craig",
     "clear": "Clears content from screen. Using the " + historyFlag + " flag will clear the command history from storage.",
     "contact": "Lists out Craig's contact information",
-    "help*": "Provides a list of available commands. Use '<i>help -s [command]</i>' for details regarding a specidic command.",
+    "help": "Provides a list of available commands. Use '<i>help -s [command]</i>' for details regarding a specidic command.",
     "home": "Resets the site to the default view",
-    "resume*": "Provides a text version of Craig's resume."+
-    "Use '<i>resume " + awardsFlag + "</i>' for a list of awards and certifications" +
-    "Use '<i>resume " + contactFlag + "</i>' for contact information" +
-    "<br>Use '<i>resume "+ downloadFlag + "</i>' for a downloadable copy - Can not be combined with other flags<br>"+
-    "Use '<i>resume " + educationFlag + "</i>' for a list of education history" +    
-    "Use '<i>resume " + workExperienceFlag + "</i>' for a list professional work experience history" +
-    "Use '<i>resume " + projectsFlag + "</i>' for a list of projects" +
-    "Use '<i>resume " + skillsFlag + "</i>' for a list of languages and technical competencies<br>"
+    "resume": ("Provides a text version of Craig's resume.<br>"+
+        "&nbsp&nbspUse '<i>resume " + awardsFlag + "</i>' for a list of awards and certifications<br>" +
+        "&nbsp&nbspUse '<i>resume " + contactFlag + "</i>' for contact information<br>" +
+        "&nbsp&nbspUse '<i>resume "+ downloadFlag + "</i>' for a downloadable copy&nbsp&nbsp---&nbsp&nbsp&nbsp&nbspCan not be combined with other flags<br>"+
+        "&nbsp&nbspUse '<i>resume " + educationFlag + "</i>' for a list of education history<br>" +    
+        "&nbsp&nbspUse '<i>resume " + workExperienceFlag + "</i>' for a list professional work experience history<br>" +
+        "&nbsp&nbspUse '<i>resume " + projectsFlag + "</i>' for a list of projects<br>" +
+        "&nbsp&nbspUse '<i>resume " + skillsFlag + "</i>' for a list of languages and technical competencies<br>")
 }
+
+const commandsWithAdditions = [
+    'help', 'resume'
+];
+
 const aboutMe = ("<h2><u>Craig M. Sirota</u></h2>"+
 "<h2>Passionate Software Engineer with a Drive for Innovation</h2>"+
 "<p>I'm a full-stack developer with a passion for building elegant and efficient software solutions. Since my first foray into coding as a high school sophomore, I've been captivated by the power of technology to transform ideas into reality. My journey continued through Rutgers University, where I graduated with a degree in computer science and further honed my skills in various languages and frameworks.</p>"+
@@ -69,7 +74,7 @@ const projectsSection = ('<hr><p class="c1"><span class="c22">PROJECTS</span></p
     '<p class="c24"><span class="c15 c22 c23">Healing The Vote - Freelance - React Native/Flask/MySQL - (Sept. 2023-Present)</span></p><p class="c2 c3"><span class="c6">A mobile app designed to gamify the effort of voter registration, to increase voter turnout.</span></p><ul class="c17 lst-kix_vrr4bhn4oygk-0 start"><li class="c4 c32 li-bullet-0"><span class="c6">Created a Flask-based REST API to communicate with a MySQL DB to handle user registration and user statistics</span></li><li class="c4 c32 li-bullet-0"><span class="c6">Designed and implemented a React Native front end to provide users with an intuitive experience</span></li></ul><p class="c5"><span class="c15 c22 c23">Automated Live Virtual Assistant Network (A.L.V.A.N.) - Personal Project - (Feb. 2020-May 2023)</span></p><p class="c2 c3"><span class="c6">A custom home automation/virtual assistant network similar to a Google Home or Amazon Alexa, utilizing a custom linear regression machine learning algorithm to determine the proper response to user queries.</span></p><p class="c2"><span class="c0">ALVAN HUB UI - React/Java (Android)</span></p><ul class="c17 lst-kix_d867ry4lu4lx-0 start"><li class="c8 c4 li-bullet-0"><span class="c6">A React-based UI, wrapped in an Android app to be run on a tablet as a standalone app, using the JS SpeechRecognizer library to parse voice commands from user</span></li><li class="c8 c4 li-bullet-0"><span class="c6">Displayed reminders, weather forecasts, and security camera feeds</span></li></ul><p class="c2"><span class="c0">ALVAN API - Python (Flask)/MySQL</span></p><ul class="c17 lst-kix_um6as6vaajcr-0 start"><li class="c8 c4 li-bullet-0"><span class="c6">Flask API for all service calls from the UI and interfaces with MySQL database to store all data for the system</span></li><li class="c8 c4 li-bullet-0"><span class="c10">Wrote custom linear regression algorithm to determine which command the user is trying to trigger, based on their query</span></li></ul></div>');
 const awardsSection = '<hr><p class="c1"><span class="c22">AWARDS and CERTIFICATES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p><p class="c5"><span class="c22 c23 c30 tab">RCM (Revenue Cycle Management) Champion Award - Q2 2022</span></p><p class="c3 c9"><span class="c10 tab2">Recognition of outstanding contribution to the success of Cerner Revenue Cycle</span></p>';
 const resumeText = "<hr>" + resumeHeader;
-const availableCommands = "The following commands are available:<ul>" + Object.keys(commands).map(command => "<li>"+command+"</li>").join('') + "</ul><br>You can also use '<i>help -s [command]</i>' for more information about a specific command.<br><br><small>'*' is not part of any command. '*' denotes that a command has additional flags available. See commands help page for more details.</small>";
+const availableCommands = "The following commands are available:<ul>" + Object.keys(commands).map(command => "<li>"+(commandsWithAdditions.includes(command) ?  command + " *" : command)+"</li>").join('') + "</ul><br>You can also use '<i>help -s [command]</i>' for more information about a specific command.<br><br><small>'*' is not part of any command. '*' denotes that a command has additional flags available. See commands help page for more details.</small>";
 const commandNotUnderstood = (commandWords) => "Command '<i>"+ commandWords.join(' ') + "</i>' was not understood. Please check your syntax or use the '<i>help</i>' command for more assistance.";
 const historyCleared = "HISTORY CLEARED";
 const screenCleared = "SCREEN CLEARED";
