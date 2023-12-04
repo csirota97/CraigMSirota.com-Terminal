@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./styles.css">
+        <link rel="stylesheet" href="./googleStyles.css">
+        <script src="input_onkeydown.js"></script>
+        <title>Craig M Sirota</title>
+    </head>
+    <body onload="onLoad()">
+        <div id="screen">
+            <img src="scanlines.png" id="scan">
+            <!-- <img src="bezel.png" id="bezel"> -->
+            <div id="content-container">
+                <div id="content">
+                    <ul id="cmdHistory">
+                    </ul>
+                    <ul>
+                        <li id="cmdInputLI">
+                            > <input id="cmdInput" type="text" onkeydown="input_onkeydown(event, this)" autofocus>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
